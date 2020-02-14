@@ -8,6 +8,8 @@ const cnn = new Sequelize(dbConfig);
 
 User.init(cnn);
 Address.init(cnn);
+
+User.associate(cnn.models);
 Address.associate(cnn.models);
 
 // To automatize this step, we can use two tools: npm Consign or npm require-directory

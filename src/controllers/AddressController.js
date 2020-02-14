@@ -20,5 +20,19 @@ module.exports = {
         });
 
         return res.json(address);
+    },
+
+    async index(req, res){
+        const { user_id } = req.params;
+
+        const user = await User.findByPk(user_id, {
+            include: { association: 'addresses' }
+        });
+
+        if(!user){
+            res.status(400).json({ erro: 'User not found.' });
+        }
+
+        return res.json(user);
     }
 };

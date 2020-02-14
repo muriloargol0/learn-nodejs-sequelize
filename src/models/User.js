@@ -11,6 +11,12 @@ class User extends Model {
             sequelize
         })
     }
+
+    static associate(models) {
+        //Telling to the user that the id field has an association with address
+        //as = the name of association
+        this.hasMany(models.Address, { foreignKey: 'user_id', as: 'addresses' });
+    }
 }
 
 module.exports = User;
