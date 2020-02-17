@@ -33,6 +33,6 @@ module.exports = {
             res.status(400).json({ erro: 'User not found.' });
         }
 
-        return res.json(user);
+        return res.json(user.addresses);
     }
 };

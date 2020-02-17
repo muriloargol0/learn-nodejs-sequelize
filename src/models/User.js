@@ -16,6 +16,7 @@ class User extends Model {
         //Telling to the user that the id field has an association with address
         //as = the name of association
         this.hasMany(models.Address, { foreignKey: 'user_id', as: 'addresses' });
+        this.belongsToMany(models.Tech, { foreignKey: 'user_id', through: 'user_techs', as: 'techs'});
     }
 }
 
